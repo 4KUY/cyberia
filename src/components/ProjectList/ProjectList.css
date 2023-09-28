@@ -1,0 +1,60 @@
+.projectList{
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3,1fr);
+}
+.card{
+    position: relative;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.item{
+  position: relative;
+  z-index: 30;
+  color: #fff;
+  max-width: 300px;
+  bottom: 0;
+}
+.description{
+  
+  margin-top: 250px;
+  margin-left: 26px;
+}
+.item-title{
+  color: #fff;
+  font-family: Rubik;
+  font-size: 28px;
+  font-weight: 500;
+  position: relative;
+  z-index: 30;
+}
+.background{
+  background-color: #dfdfdf;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  top:0;
+  left: 0;
+  border-radius: 6px;
+}
+
+.card::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgb(0, 0, 0) 100%);
+  z-index: 20;
+  
+  opacity: 0.6;
+  transition: 0.4s;
+}
+.card:hover::after{
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}

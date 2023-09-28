@@ -1,0 +1,59 @@
+.main_form {
+    padding: 95px 0;
+    margin-top: 120px;
+    width: 100%;
+    display: flex;
+    column-gap: 125px;
+}
+.form_input{
+    border: 1px solid #9aa8ba;
+  border-radius: 8px;
+  outline: none;
+  padding: 15px 0 15px 10px;
+  transition: border-color .2s;
+  width: calc(100% - 14px);
+}
+.contact_text{
+    max-width: 390px;
+    display: flex;
+  flex-direction: column;
+}
+.contact_tittle {
+    font-size: 38px;
+    font-weight: 500;
+    margin-top: 14px;
+}
+
+.contact_info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: 30px;
+}
+.form{
+    display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 400px;
+  width: 20vw;
+  column-gap: 30px;
+}
+.btn_form{
+  font-size: 13px;
+  padding: 20px 53px;
+  background-color: #2d76f9;
+  border-radius: 35px;
+  color: #fff;
+  border: none;
+}
+.text_area{
+  width: 100%;
+  min-height: 210px;
+}
+.container_textfields{
+  margin-bottom: 35px
+}
+.formsub{
+  display: flex;
+  column-gap: 40px;
+}
