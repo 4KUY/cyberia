@@ -1,12 +1,8 @@
 import React from 'react'
-interface TitleButton {
-  title: string
-  stylesClass: string
-  submitForm: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
-}
+import {TitleButton} from 'src/types/types'
 
-export const Button: React.FC<TitleButton> = ({ title, stylesClass, submitForm }: TitleButton) => {
+export const Button: React.FC<TitleButton> = ({ title, stylesClass, type }: TitleButton) => {
   return (
-    <button className={stylesClass} onClick={submitForm} >{ title }</button>
+    <button className={stylesClass} type="submit" >{ title }</button>
   )
 }

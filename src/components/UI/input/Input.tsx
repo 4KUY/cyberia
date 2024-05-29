@@ -1,10 +1,17 @@
 import React from 'react'
-interface InputProps { placeholder: string, type?: string, styleclass?: string, containerTextfields?: string, value?: string, changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void }
+import { InputProps } from 'src/types/types'
 
-export const Input: React.FC<InputProps> = ({ styleclass, containerTextfields, value, changeHandler, type, placeholder }: InputProps) => {
+
+//{ required: true, maxLength: 80 }
+
+
+export const Input: React.FC<InputProps> = ({ reg, styleclass, containerTextfields, value, changeHandler, type, placeholder,option, label , nameReg }: InputProps) => {
+  const register = reg
   return (
     <div className={ containerTextfields }>
-    <input placeholder={placeholder} type={type} className={ styleclass } value={value} onChange={changeHandler} />
+      <label>{label}</label>
+      
+     <input {...register(`${nameReg}`,option )} className={ styleclass } /> {/*value={value} onChange={changeHandler}  */}
     </div>
   )
 }

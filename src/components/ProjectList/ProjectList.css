@@ -10,24 +10,21 @@
     flex-direction: column;
     cursor: pointer;
 }
-.item{
-  position: relative;
-  z-index: 30;
-  color: #fff;
-  max-width: 300px;
-  bottom: 0;
-}
 .description{
-  
-  margin-top: 250px;
-  margin-left: 26px;
+  position: absolute;
+  top:20px;
+  right: 20px;
+  width: 128px;
+  height: 128px;
+  background: #313341;
+  border-radius: 5px;
+  font-size: 10px;
+  text-align: center;
 }
 .item-title{
   color: #fff;
-  font-family: Rubik;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
-  position: relative;
   z-index: 30;
 }
 .background{
@@ -57,4 +54,24 @@
 .card:hover::after{
   opacity: 1;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+
+
+@media (max-width: 1280px) {
+  
+  .projectList{
+    
+    margin: 0 20px;
+    grid-template-columns: repeat(2,1fr);
+}
+}
+
+@media (max-width: 950px) {
+  .projectList {
+      
+  grid-template-columns: repeat(1,1fr);
+  }
+  .card{
+    height: 320px;
+}
 }

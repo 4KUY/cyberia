@@ -1,47 +1,65 @@
-import React, { useState } from 'react'
-import { Img } from './Group 1347'
+
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import './ContactForm.css'
 import { Input } from '../UI/input/Input'
 import { Textfield } from '../UI/textfield/Textfield'
 import { Button } from '../UI/button/Button'
 import { useAppDispatch } from '../../hooks'
-import { formFeedback } from '../../store/projectsSlice'
+import { fetchSubmitForm } from '../../store/projectsSlice'
+
 
 export const ContactForm: React.FC = () => {
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
-  const [attachment, setAttachment] = useState('')
-
   const dispatch = useAppDispatch()
-  const submitForm: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setAttachment('')
-    console.log(JSON.stringify({ email, phone, message, attachment }))
-    void dispatch(formFeedback({ email, phone, message, attachment }))
-    e.preventDefault()
-  }
 
-  const changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void = (e) => {
-    setEmail(e.target.value)
+  interface Params {
+    Email: string
+    firstName: string
+    mobileNumber: string
   }
-  const changeHandlerPhone: (e: React.ChangeEvent<HTMLInputElement>) => void = (e) => {
-    setPhone(e.target.value)
-  }
+  
   const changeHandlerMessage: (e: React.ChangeEvent<HTMLTextAreaElement>) => void = (e) => {
     setMessage(e.target.value)
   }
 
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = (data: Params) => {
+    const params = {
+      phone: data.mobileNumber,
+      email: data.Email,
+      message,
+      name: data.firstName
+    }
+    
+    dispatch(fetchSubmitForm(params))
+    
+  }
+  console.log(errors);
   return (
-    <div className='main_form' >
-      <div className='contact_text'> <Img />
-        <span className='contact_tittle' >Расскажите о вашем проекте</span>
-        <span className='contact_info' >Поделитесь с нами информацией, чем мы можем быть полезны: реализовать идею или выделить разработчиков для ИТ-команды. Чем больше вы нам расскажете, тем продуктивнее будет дальнейшее обсуждение</span>
+    <div className='contact_form_main_div'>
+     
+      <div className='main_form' >
+        <div className='contact_text'>
+          <span className='contact_tittle' >Расскажите <br />о вашем проекте:</span></div>
       </div>
-      <form className='form' >
-        <Input type="email" placeholder="Email" value={email} changeHandler={changeHandler} containerTextfields='container_textfields' styleclass='form_input' ></Input>
-        <Input placeholder="Телефон" value={phone} changeHandler={changeHandlerPhone} containerTextfields='container_textfields' styleclass='form_input'></Input>
-        <Textfield placeholder="Сообщение" value={message} changeHandler={changeHandlerMessage} containerTextfields='container_textfields' styleclass='text_area' />
-        <div className='formsub'><Button submitForm={ submitForm } stylesClass='btn_form' title='Отправить' /> <p>Нажимая «Отправить», вы даете согласие на обработку персональных данных</p> </div>
+      <form onSubmit={handleSubmit(onSubmit)} className='form' >
+        <div className='inputs' >
+
+          <Input containerTextfields={'input_one'} label={'Ваше имя*'} nameReg={'firstName'} reg={register} option={{ required: true, maxLength: 80 }} /> {/*value={name} changeHandler={changeHandlerName}  */}
+
+          <Input reg={register} containerTextfields={'input_one'} label={'Email*'} nameReg={'Email'} option={{ required: true, pattern: /^\S+@\S+$/i }} /> {/*value={email} changeHandler={changeHandlerEmail} */}
+
+          <Input reg={register} containerTextfields={'input_one'} label={'Телефон*'} nameReg={'mobileNumber'} option={{ required: true, minLength: 10, maxLength: 12 }} /> {/*value={phone} changeHandler={changeHandlerPhone}*/}
+          
+        </div>
+        <Textfield containerTextfields={'message'} label={'Сообщение'} value={message} changeHandler={changeHandlerMessage} />
+
+
+        <div style={{ textAlign: 'center', marginTop: '60px' }}>
+          <Button stylesClass={'submitBtn'} title={'Отправить форму'} />
+        </div>
       </form>
     </div>
   )

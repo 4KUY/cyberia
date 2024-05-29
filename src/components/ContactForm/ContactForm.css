@@ -1,59 +1,108 @@
 .main_form {
-    padding: 95px 0;
-    margin-top: 120px;
-    width: 100%;
-    display: flex;
-    column-gap: 125px;
+  padding: 95px 0;
+  margin-top: 120px;
+  width: 100%;
+  display: flex;
+  column-gap: 125px;
 }
-.form_input{
-    border: 1px solid #9aa8ba;
+
+.inputs {
+  display: grid;
+  margin-bottom: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2%;
+
+}
+
+.input_one {
+
+  position: relative;
+}
+
+.message {
+  position: relative;
+}
+
+.message label {
+  background: #272833;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  padding: 0 5px;
+}
+
+.message textarea {
+  background: transparent;
+  border: 1.5px solid #9AA8BA;
   border-radius: 8px;
   outline: none;
+  color: white;
+  font-size: 19px;
+  width: 99%;
+  padding: 15px 0 15px 10px;
+  transition: border-color .2s;
+}
+
+.input_one label {
+  background: #272833;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  padding: 0 5px;
+}
+
+.input_one input {
+  background: transparent;
+  border: 1.5px solid #9AA8BA;
+  border-radius: 8px;
+  outline: none;
+  color: white;
+  font-size: 19px;
   padding: 15px 0 15px 10px;
   transition: border-color .2s;
   width: calc(100% - 14px);
 }
-.contact_text{
-    max-width: 390px;
-    display: flex;
-  flex-direction: column;
-}
+
 .contact_tittle {
-    font-size: 38px;
-    font-weight: 500;
-    margin-top: 14px;
+  font-size: 38px;
+  font-weight: 500;
+  margin-top: 14px;
 }
 
-.contact_info {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    margin-top: 30px;
-}
-.form{
-    display: flex;
+.form {
+  display: flex;
   flex-direction: column;
   flex-grow: 1;
-  min-width: 400px;
-  width: 20vw;
+  min-width: 100px;
   column-gap: 30px;
 }
-.btn_form{
-  font-size: 13px;
+
+.submitBtn {
+  font-size: 17px;
   padding: 20px 53px;
   background-color: #2d76f9;
   border-radius: 35px;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
-.text_area{
-  width: 100%;
-  min-height: 210px;
-}
-.container_textfields{
-  margin-bottom: 35px
-}
-.formsub{
-  display: flex;
-  column-gap: 40px;
+
+
+
+@media (max-width: 950px) {
+  .contact_form_main_div {
+
+    margin: 0 20px;
+    min-width: 100px;
+
+  }
+
+  .inputs {
+    display: grid;
+    margin-bottom: 40px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+  }
+
 }

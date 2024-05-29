@@ -21,10 +21,7 @@ export const Footer: React.FC = () => {
                         <li>Вакансии</li>
                     </ul>
                 </div>
-                <ul>
-                    <li>© 2022, Cyberia</li>
-                    <li>Политика конфиденциальности</li>
-                </ul>
+
             </div>
     </footer>
   )

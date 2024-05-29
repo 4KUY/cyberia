@@ -7,7 +7,9 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
+import { BurgerMenu } from './components/AppBar/Menu/BurgerMenu'
 
+const items = ['Агентсво', 'Услуги' , 'Кейсы', 'Блог','Контакты']
 const router = createBrowserRouter([
   {
     path: '/',
@@ -15,6 +17,12 @@ const router = createBrowserRouter([
       <App />
     ),
     children: []
+  },
+  {
+    path:'/burger',
+    element:(
+      <BurgerMenu items={items}/>
+    )
   }
 ])
 const root = ReactDOM.createRoot(
