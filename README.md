@@ -2,7 +2,10 @@
 ## Available Scripts
 <li>Clone repository: <code>git clone https://github.com/4KUY/cyberia.git</code></li>
 In the project directory, you can run:
+Run backend development server:
 
+### `cd cyberia`
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
